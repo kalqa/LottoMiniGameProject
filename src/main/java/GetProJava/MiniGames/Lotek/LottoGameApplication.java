@@ -10,7 +10,7 @@ public class LottoGameApplication extends MiniGameManager implements MiniGame {
         super.start();
     }
     public void playLottoGame() {
-        LottoGameMechanism.checkIfUserWon();
+        LottoGameMechanism.checkResult();
         super.end();
     }
 
