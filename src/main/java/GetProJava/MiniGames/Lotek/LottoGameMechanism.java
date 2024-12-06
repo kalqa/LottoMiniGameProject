@@ -13,7 +13,7 @@ public class LottoGameMechanism {
         Set winningNumbers = new HashSet();
         SecureRandom secureRandomProperNumber = new SecureRandom();
         for (int i = 0; i < 6; i++) {
-            winningNumbers.add(secureRandomProperNumber.nextInt(1, 99) + 1);
+            winningNumbers.add(secureRandomProperNumber.nextInt(99) + 1);
         }
         System.out.println("Winning numbers are:"+winningNumbers);
         return winningNumbers;
@@ -22,28 +22,24 @@ public class LottoGameMechanism {
     public static Set<Integer> get6NumbersFromUser() {
         Set<Integer> userNumbers = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input 6 numbers to check if you won.");
-        int i = 0;
-        while (i < 6) {
-            try {
-                System.out.println("Number" + (i + 1) + ":");
-                int number = scanner.nextInt();
-                if (validateNumber(number)) {
-                    userNumbers.add(number);
-                    i++;
-                }
-                else {
-                    System.out.println("Number out of range!");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong input data!");
-                break;
-            } catch (NoSuchElementException e) {
-                System.out.println("ERROR! No data!");
-                break;
+
+        System.out.println("Enter 6 numbers, separated by whitespace:");
+        String input = scanner.nextLine();
+
+        String[] numbers = input.split("\\s+");
+
+        try {
+            if (numbers.length != 6) {
+                throw new IllegalArgumentException("You must provide exactly 6 numbers!");
             }
+
+            Arrays.stream(numbers).map(Integer::parseInt).forEach(userNumbers::add);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: All values must be valid integers.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        scanner.close();
+
         return userNumbers;
     }
 
