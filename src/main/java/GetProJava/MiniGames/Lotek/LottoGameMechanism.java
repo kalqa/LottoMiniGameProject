@@ -55,7 +55,6 @@ public class LottoGameMechanism {
     public static void showResult() {
         String res;
         Set<Integer> winningNumbers = get6WinnigNumbers();
-        System.out.println(winningNumbers);
         Set<Integer> userNumbers = get6NumbersFromUser(new Scanner(System.in));
         System.out.println("CHECKING RESULT");
         if (userNumbers.size() == 6) {
