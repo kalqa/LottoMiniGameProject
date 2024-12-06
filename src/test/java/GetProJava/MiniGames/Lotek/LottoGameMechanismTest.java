@@ -88,7 +88,7 @@ public class LottoGameMechanismTest {
 
     @ParameterizedTest
     @MethodSource("provideParameters")
-    void testInfoAboutWinning(Integer properNumbers, Integer price) {
+    void getInfoAboutWinningTest(Integer properNumbers, Integer price) {
         // Given
         String expected = "You won " + price + "zl! You have " + properNumbers + " numbers right.";
         // When
