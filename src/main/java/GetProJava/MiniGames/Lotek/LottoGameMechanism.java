@@ -16,7 +16,6 @@ public class LottoGameMechanism {
         while (winningNumbers.size() != 6) {
             winningNumbers.add(secureRandomProperNumber.nextInt(99) + 1);
         }
-        System.out.println("Winning numbers: " + winningNumbers);
         return winningNumbers;
     }
 
@@ -30,7 +29,7 @@ public class LottoGameMechanism {
 
         try {
             if (numbers.length != 6) {
-                throw new IllegalArgumentException("You must provide exactly 6 numbers!");
+                throw new IllegalArgumentException("You must provide exactly 6 numbers! Data has to be numbers.");
             }
 
             Arrays.stream(numbers).map(Integer::parseInt).peek(number -> {
@@ -53,8 +52,9 @@ public class LottoGameMechanism {
     }
 
 
-    public static void checkResult() {
+    public static String showResult() {
         System.out.println("CHECKING RESULT");
+        String res="";
         Set winningNumbers = get6WinnigNumbers();
 
         Set userNumbers = get6NumbersFromUser(new Scanner(System.in));
@@ -65,35 +65,42 @@ public class LottoGameMechanism {
             int properNumbers = ((Set<Integer>) winningNumbers).size();
             switch (properNumbers) {
                 case 3: {
-                    infoAboutWinning(properNumbers, 10);
+                    res = infoAboutWinning(properNumbers, 10);
+                    System.out.println(res);
                     break;
                 }
                 case 4: {
-                    infoAboutWinning(properNumbers, 100);
+                    res = infoAboutWinning(properNumbers, 100);
+                    System.out.println(res);
                     break;
                 }
                 case 5: {
-                    infoAboutWinning(properNumbers, 3500);
+                    res = infoAboutWinning(properNumbers, 3500);
+                    System.out.println(res);
                     break;
                 }
                 case 6: {
-                    infoAboutWinning(properNumbers, 1000_000);
+                    res = infoAboutWinning(properNumbers, 1000_000);
+                    System.out.println(res);
                     break;
                 }
                 case 1, 2: {
-                    infoAboutWinning(properNumbers, 0);
+                    res = infoAboutWinning(properNumbers, 0);
+                    System.out.println(res);
                     break;
                 }
                 default: {
-                    System.out.println("GAME HAS BEEN ENDED. You have 0 numbers right");
+                    res = "GAME HAS BEEN ENDED. You have 0 numbers right";
+                    System.out.println(res);
                     break;
                 }
             }
         }
+        return res;
     }
 
-    private static void infoAboutWinning(int properNumbers, int price) {
-        System.out.println("You won " + price + "zl! You have " + properNumbers + " numbers right.");
+    public static String infoAboutWinning(int properNumbers, int price) {
+        return "You won " + price + "zl! You have " + properNumbers + " numbers right.";
     }
 
 }

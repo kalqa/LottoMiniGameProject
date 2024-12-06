@@ -10,8 +10,12 @@ public class LottoGameApplication extends MiniGameManager implements MiniGame {
         super.start();
     }
     public void playLottoGame() {
-        LottoGameMechanism.checkResult();
-        super.end();
+        try {
+            LottoGameMechanism.showResult();
+        }
+        catch (Exception e) {
+            System.out.println("You cannot play with that data.");
+        }
     }
 
 }

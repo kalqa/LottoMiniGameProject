@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         LottoGameApplication app = new LottoGameApplication();
         app.playLottoGame();
-
+        app.end();
     }
 }
