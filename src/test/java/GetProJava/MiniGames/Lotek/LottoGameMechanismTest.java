@@ -61,31 +61,39 @@ public class LottoGameMechanismTest {
 
     @Test
     void get6NumbersFromUserWithAllNumbersInvalidTest() {
+        // Given
         String input = "0 -2 -3 -4 105 699";
         Scanner scanner = mockScannerIn(input);
         // When & Then
         assertThrows(IllegalArgumentException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
+
     @Test
     void get6NumbersFromUserWithInvalidTypeTest() {
+        // Given
         String input = "1 2 3 4 5 c";
         Scanner scanner = mockScannerIn(input);
+        //When & Then
         assertThrows(NumberFormatException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
+
     @Test
     void get6NumbersFromUserWithTextTest() {
+        // Given
         String input = "alfabet";
         Scanner scanner = mockScannerIn(input);
+        // When & Then
         assertThrows(IllegalArgumentException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
+
     @ParameterizedTest
     @MethodSource("provideParameters")
     void testInfoAboutWinning(Integer properNumbers, Integer price) {
-        // given
+        // Given
         String expected = "You won " + price + "zl! You have " + properNumbers + " numbers right.";
-        // when
+        // When
         String result = LottoGameMechanism.infoAboutWinning(properNumbers, price);
-        // then
+        // Then
         assertThat(result).isEqualTo(expected);
     }
 
