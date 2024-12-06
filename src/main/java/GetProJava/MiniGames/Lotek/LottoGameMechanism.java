@@ -52,17 +52,17 @@ public class LottoGameMechanism {
     }
 
 
-    public static String showResult() {
+    public static void showResult() {
         System.out.println("CHECKING RESULT");
-        String res="";
-        Set winningNumbers = get6WinnigNumbers();
+        String res;
+        Set<Integer> winningNumbers = get6WinnigNumbers();
 
-        Set userNumbers = get6NumbersFromUser(new Scanner(System.in));
+        Set<Integer> userNumbers = get6NumbersFromUser(new Scanner(System.in));
         if (userNumbers.size() == 6) {
 
-            ((Set<Integer>) winningNumbers).retainAll(userNumbers);
+            winningNumbers.retainAll(userNumbers);
 
-            int properNumbers = ((Set<Integer>) winningNumbers).size();
+            int properNumbers = winningNumbers.size();
             switch (properNumbers) {
                 case 3: {
                     res = infoAboutWinning(properNumbers, 10);
@@ -96,7 +96,6 @@ public class LottoGameMechanism {
                 }
             }
         }
-        return res;
     }
 
     public static String infoAboutWinning(int properNumbers, int price) {

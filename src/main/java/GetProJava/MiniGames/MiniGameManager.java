@@ -1,25 +1,22 @@
 package GetProJava.MiniGames;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 
-@Data
+@Getter
 @AllArgsConstructor
 public class MiniGameManager implements MiniGame{
     private String nameOfMiniGame;
 
     @Override
     public void start() {
-        System.out.println("Game "+nameOfMiniGame+" started");
+        System.out.println("Game "+getNameOfMiniGame()+" started");
     }
 
     @Override
     public void end() {
-        System.out.println("Game "+nameOfMiniGame+" ended");
+        System.out.println("Game "+getNameOfMiniGame()+" ended");
     }
-    @Override
-    public String getNameOfCurrentGame() {
-        return nameOfMiniGame;
-    }
+
 }

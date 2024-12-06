@@ -3,9 +3,7 @@ package GetProJava.MiniGames.Lotek;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -58,9 +56,7 @@ public class LottoGameMechanismTest {
         String input = "1 2 3 4 5 0";
         Scanner scanner = mockScannerIn(input);
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            LottoGameMechanism.get6NumbersFromUser(scanner);
-        });
+        assertThrows(IllegalArgumentException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
 
     @Test
@@ -68,25 +64,19 @@ public class LottoGameMechanismTest {
         String input = "0 -2 -3 -4 105 699";
         Scanner scanner = mockScannerIn(input);
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            LottoGameMechanism.get6NumbersFromUser(scanner);
-        });
+        assertThrows(IllegalArgumentException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
     @Test
     void get6NumbersFromUserWithInvalidTypeTest() {
         String input = "1 2 3 4 5 c";
         Scanner scanner = mockScannerIn(input);
-        assertThrows(NumberFormatException.class, () -> {
-            LottoGameMechanism.get6NumbersFromUser(scanner);
-        });
+        assertThrows(NumberFormatException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
     @Test
     void get6NumbersFromUserWithTextTest() {
         String input = "alfabet";
         Scanner scanner = mockScannerIn(input);
-        assertThrows(IllegalArgumentException.class, () -> {
-            LottoGameMechanism.get6NumbersFromUser(scanner);
-        });
+        assertThrows(IllegalArgumentException.class, () -> LottoGameMechanism.get6NumbersFromUser(scanner));
     }
     @ParameterizedTest
     @MethodSource("provideParameters")
