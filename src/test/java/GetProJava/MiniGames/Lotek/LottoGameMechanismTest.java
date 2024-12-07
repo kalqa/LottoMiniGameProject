@@ -24,6 +24,18 @@ public class LottoGameMechanismTest {
         return scanner;
     }
 
+    static Stream<Arguments> provideParametersForWinningMessageTest() {
+        return Stream.of(
+                Arguments.of(0, 0),
+                Arguments.of(1, 0),
+                Arguments.of(2, 0),
+                Arguments.of(3, 10),
+                Arguments.of(4, 100),
+                Arguments.of(5, 3500),
+                Arguments.of(6, 1000000)
+        );
+    }
+
 
     @Test
     void get6WinningNumbersTest() {
@@ -87,7 +99,7 @@ public class LottoGameMechanismTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideParameters")
+    @MethodSource("provideParametersForWinningMessageTest")
     void getInfoAboutWinningTest(Integer properNumbers, Integer price) {
         // Given
         String expected = "You won " + price + "zl! You have " + properNumbers + " numbers right.";
@@ -97,16 +109,6 @@ public class LottoGameMechanismTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    static Stream<Arguments> provideParameters() {
-        return Stream.of(
-                Arguments.of(0, 0),
-                Arguments.of(1, 0),
-                Arguments.of(2, 0),
-                Arguments.of(3, 10),
-                Arguments.of(4, 100),
-                Arguments.of(5, 3500),
-                Arguments.of(6, 1000000)
-        );
-    }
+
 
 }

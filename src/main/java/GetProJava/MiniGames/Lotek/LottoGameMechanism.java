@@ -24,7 +24,6 @@ public class LottoGameMechanism {
 
         System.out.println("Enter 6 numbers from 1 to 99, separated by whitespace:");
         String input = scanner.nextLine();
-
         String[] numbers = input.split("\\s+");
 
         try {
@@ -55,6 +54,7 @@ public class LottoGameMechanism {
     public static void showResult() {
         String res;
         Set<Integer> winningNumbers = get6WinnigNumbers();
+        Set<Integer> allWinningNumbers = new HashSet<>(winningNumbers);
         Set<Integer> userNumbers = get6NumbersFromUser(new Scanner(System.in));
         System.out.println("CHECKING RESULT");
         if (userNumbers.size() == 6) {
@@ -95,6 +95,9 @@ public class LottoGameMechanism {
                 }
             }
         }
+        System.out.println("Your numbers:"+userNumbers);
+        System.out.println("Numbers which has won:"+allWinningNumbers);
+
     }
 
     public static String infoAboutWinning(int properNumbers, int price) {
