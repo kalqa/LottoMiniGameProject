@@ -37,7 +37,9 @@ The project includes unit tests to ensure correctness and reliability. These tes
 ## Requirements
 
 - Java Development Kit (JDK) 8 or higher.
-- A basic understanding of Java and command-line applications.
+- JUnit 5 (for testing purposes).
+- AssertJ (for fluent assertions in tests).
+- Any IDE or text editor for Java development (e.g., IntelliJ IDEA, Eclipse, VSCode).
 
 ---
 
