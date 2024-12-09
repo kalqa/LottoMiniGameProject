@@ -27,7 +27,7 @@ The project includes unit tests to ensure correctness and reliability. These tes
 - **Result comparison:** Checking that matches between user numbers and winning numbers are calculated accurately.
 
 ### How to Run Tests
-1. Ensure you have a Java testing framework like **JUnit** installed.
+1. Ensure you have **JUnit** and **AssertJ** installed.
 2. Execute the test suite included in the repository:
    - Run test files in your IDE or through the command line with your preferred test runner.
 3. Review the test outputs to verify application behavior.
