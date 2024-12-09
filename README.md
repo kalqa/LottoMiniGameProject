@@ -54,9 +54,9 @@ The project includes unit tests to ensure correctness and reliability. These tes
    ```
 3. Compile the application:
 </br>
- ```bash
+```bash
    javac Main.java
- ```
+   ```
 </br>
 4. Run the application:
  ```bash
