@@ -47,19 +47,18 @@ The project includes unit tests to ensure correctness and reliability. These tes
    ```bash
    git clone https://github.com/Pablo1644/LottoMiniGameProject.git
    ```
-## How to Run the Application
 
 2. Navigate to the project directory:  
    ```bash
    cd LottoMiniGameProject
    ```
-3.Compile the application:
+3. Compile the application:
 </br>
  ```bash
    javac Main.java
  ```
 </br>
-Run the application:
+4. Run the application:
  ```bash
    java Main
  ```
